@@ -1,6 +1,7 @@
 {
   "name": "sqs-queue",
   "version": "0.0.1",
+  "description": "Simple AWS SQS wrapper for easy handling producer/consumer",
   "dependencies": {
     "aws-sdk": "^2.3.14",
     "bluebird": "^3.4.0",

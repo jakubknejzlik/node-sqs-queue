@@ -7,3 +7,24 @@
 `npm install --save sqs-queue`
 
 # Example
+
+```coffeescript
+SQSQueue = require('sqs-queue')
+
+queue = new SQSQueue({
+    QueueUrl: process.env.QUEUE_URL,
+    accessKeyId: process.env.ACCESS_KEY_ID,
+    secretAccessKey: process.env.SECRET_ACCESS_KEY
+})
+
+queue.createWorker((message,done)->
+    console.log('received message', message.foo, message.blah)
+    done()
+)
+
+queue.push({foo: 'foo value', blah: 'blah value'}).then(()->
+    console.log('item pushed')
+).catch((err)->
+    console.error('something bad happened:',err.message)
+)
+```
