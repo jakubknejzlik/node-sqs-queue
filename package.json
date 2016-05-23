@@ -2,6 +2,7 @@
   "name": "sqs-queue",
   "version": "1.0.0",
   "description": "Simple AWS SQS wrapper for easy handling producer/consumer",
+  "keywords": ["aws","sqs","queue","consumer","worker","producer","simple","easy"],
   "license": "MIT",
   "dependencies": {
     "aws-sdk": "^2.3.14",
