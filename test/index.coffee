@@ -2,9 +2,9 @@ assert = require('assert')
 SQSQueue = require('../index')
 
 queue = new SQSQueue({
-  QueueUrl: 'https://sqs.eu-central-1.amazonaws.com/458470902217/sqs-queue-test',
-  accessKeyId: "AKIAJBR4RCFU5DMYFQFQ",
-  secretAccessKey: "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"
+  QueueUrl: process.env.QUEUE_URL,
+  accessKeyId: process.env.ACCESS_KEY_ID,
+  secretAccessKey: process.env.SECRET_ACCESS_KEY
 })
 
 describe('test',()->
@@ -15,8 +15,8 @@ describe('test',()->
   it('should push and retreive data from queue',(done)->
     value = 'hello world'
     queue.createWorker((message,_done)->
-      assert.equal(message.value,value)
       _done()
+      assert.equal(message.value,value)
       done()
     )
     queue.push({value: value}).catch(done)
