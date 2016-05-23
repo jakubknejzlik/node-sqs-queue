@@ -15,7 +15,7 @@
   describe('test', function() {
     return it('should push and retreive data from queue', function(done) {
       var value;
-      value = Math.random();
+      value = 'hello world';
       queue.createWorker(function(message, _done) {
         assert.equal(message.value, value);
         _done();

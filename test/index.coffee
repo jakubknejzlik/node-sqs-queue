@@ -13,7 +13,7 @@ describe('test',()->
 #  )
 
   it('should push and retreive data from queue',(done)->
-    value = Math.random()
+    value = 'hello world'
     queue.createWorker((message,_done)->
       assert.equal(message.value,value)
       _done()
