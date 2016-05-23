@@ -13,5 +13,9 @@
   },
   "scripts": {
     "test": "mocha test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jakubknejzlik/node-sqs-queue.git"
   }
 }
