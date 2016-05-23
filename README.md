@@ -17,10 +17,11 @@ queue = new SQSQueue({
     secretAccessKey: process.env.SECRET_ACCESS_KEY
 })
 
-queue.createWorker((message,done)->
+worker = queue.createWorker((message,done)->
     console.log('received message', message.foo, message.blah)
     done()
-)
+,{concurrency: 1})
+# you can additionally stop worker by calling worker.stop()
 
 queue.push({foo: 'foo value', blah: 'blah value'}).then(()->
     console.log('item pushed')
